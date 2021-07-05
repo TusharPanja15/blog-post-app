@@ -63,9 +63,11 @@
                         </h1>
                         <p class="my-2">
                             <em>Category:</em>
-                            <%= post.category %>
+                            <b><%= post.category %></b> |
+                            <em>Posted By:</em>
+                            <b><%= post.creator %></b>
                         </p>
-                        <p class="lead my-4">
+                        <p class="lead my-1">
                             <%= post.content.substring(0, 300) %>
                         </p>
                         <small class="lead mt-1"><a href="/posts/<%=post._id%>" class="fw-bold">Read
