@@ -1,0 +1,42 @@
+<%- include('partials/header'); -%>
+
+    <div class="b-example-divider"></div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-5">
+                <h1 class="display-4">Edit Post</h1>
+
+                <form action="/posts/<%= post_ID %>?_method=PUT" method="POST">
+                    <div class="mb-3">
+                        <label for="postTitle" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="postTitle" name="postTitle" value="<%= title %>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="postCategory" class="form-label">Category</label>
+                        <input type="text" class="form-control" id="postCategory" name="postCategory" value="<%= category %>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="postBody" class="form-label">Post</label>
+                        <textarea class="form-control" id="postBody" name="postBody"
+                            rows="6"> <%= content %> </textarea>
+                    </div>
+
+                    <div class="pt-4">
+                    <button type="submit" class="btn btn-outline-success me-4 postBtn">Edit</button>
+                    <a href="/" class="btn btn-danger postBtn">Cancel</a>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+
+    <%- include('partials/footer'); -%>

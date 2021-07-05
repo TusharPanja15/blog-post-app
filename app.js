@@ -44,7 +44,6 @@ const postsSchema = {
 
 const Post = mongoose.model("Post", postsSchema)
 
-
 const post1 = new Post({
     title: "Welcome",
     category: "",
@@ -52,7 +51,6 @@ const post1 = new Post({
 })
 
 const defaultPosts = [post1]
-
 
 app.get('/', (req, res) => {
 

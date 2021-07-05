@@ -1,0 +1,62 @@
+<%- include('partials/header'); -%>
+
+    <div class="b-example-divider"></div>
+
+
+    <div class="container">
+        <div class="d-flex bd-highlight">
+
+            <div class="p-5 flex-grow-1 bd-highlight">
+                <div class="container">
+
+                    <% const options={ day: "numeric" , month: "long" } %>
+
+                    <div class="mb-4 bd-highlight">
+                        <a type="button" class="btn btn-outline-warning postBtn" href="/">&#8592; Back</a>
+                    </div>
+
+                    <h1 class="display-4">
+                        <%= title %>
+                    </h1>
+                    <p class="my-1">
+                        <em>Category:</em> <%= category %>
+                    </p>
+                    <small>
+                        <%= createdAt.toLocaleDateString("en-US", options) %>
+                    </small>
+                    <hr class="my-4">
+                    <p>
+                        <%= content %>
+                    </p>
+                    <hr class="my-4">
+
+                    <div class="fb-like" data-href="http://localhost:4000/posts/&lt;%=post_ID%&gt;" data-width=""
+                        data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
+
+                </div>
+            </div>
+
+
+            <div class="p-2 bd-highlight">
+                <a type="button" class="btn btn-outline-info postBtn" href="/posts/edit/<%= post_ID %>">Edit</a>
+            </div>
+
+            <form action="/deletePost" method="post">
+                <div class="p-2 bd-highlight">
+                    <button type="submit" class="btn btn-danger postBtn" value="<%= post_ID %>"
+                        name="deletePost">Delete</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    </div>
+
+    <%- include('partials/footer'); -%>

@@ -1,0 +1,79 @@
+<%- include('partials/header'); -%>
+
+    <div class="header-container">
+        <div class="page-wrap">
+            <figure>
+                <div class="header-img-container">
+                    <div class="crop-height bg-image bg-position">
+                        <img class="scale" src="img/van.jpg">
+                    </div>
+                </div>
+            </figure>
+            <figcaption>
+
+                <div class="container postBoxes">
+
+                    <div class="d-flex p-2 bd-highlight">
+                        <figure>
+                            <p>It's <%= day %>. Have a nice day ;-) </p>
+                            <blockquote class="blockquote">
+                                <p>"<%= quote %>"</p>
+                            </blockquote>
+                            <div>
+                                <cite title="Source Title"> - <%= quotePerson %></cite>
+                            </div>
+                        </figure>
+                    </div>
+
+                    <div class="d-inline-flex p-2 bd-highlight createPost">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a href="/compose" type="button" class="btn btn-success">Create new post</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </figcaption>
+        </div>
+    </div>
+
+
+    <div class="b-example-divider"></div>
+
+
+    <% posts.forEach(function(post) { %>
+        <div class="container postBoxes">
+
+            <div class="d-flex bd-highlight">
+
+                <% const options={ day: "numeric" , month: "long" } %>
+
+                    <div class="p-2 bd-highlight">
+                        <div class="circle">
+                            <p>
+                                <%= post.createdAt.toLocaleDateString("en-US", options)%>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-2 my-4 flex-grow-1 bd-highlight">
+
+                        <h1 class="display-4 fst-italic">
+                            <%= post.title %>
+                        </h1>
+                        <p class="my-2">
+                            <em>Category:</em>
+                            <%= post.category %>
+                        </p>
+                        <p class="lead my-4">
+                            <%= post.content.substring(0, 300) %>
+                        </p>
+                        <small class="lead mt-1"><a href="/posts/<%=post._id%>" class="fw-bold">Read
+                                More</a></small>
+
+                    </div>
+            </div>
+            <hr>
+        </div>
+
+        <% }) %>

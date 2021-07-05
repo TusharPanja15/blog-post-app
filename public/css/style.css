@@ -1,0 +1,105 @@
+.bg-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+figcaption {
+  position: absolute;
+  top: 70px;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.527);
+  /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+}
+
+figcaption .container {
+  position: relative;
+  top: 100px;
+}
+
+.postBtn {
+  width: 100px;
+}
+
+.b-example-divider {
+  height: 3rem;
+  border-width: 1px 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: var(--bs-gray);
+}
+
+.form-control-dark:focus {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: #fff;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.footer-padding {
+  padding-bottom: 60px;
+}
+
+.footer {
+  display: inline;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1abc9c;
+}
+
+.footer p {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.blockquote {
+  font-size: 50px;
+  font-style: italic;
+}
+
+figure>p {
+  margin-top: -40px;
+  font-size: xx-large;
+  color: #1abc9c;
+}
+
+.createPost {
+  margin-top: -40px;
+  margin-left: -180px;
+  width: 80%;
+}
+
+.postBoxes {
+  width: 59%;
+}
+
+.circle {
+  background-color:#fff;
+    border:5px solid rgba(255, 230, 0, 0.699);    
+    height:130px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:130px;
+}
+
+.circle>p {
+  color: rgba(3, 200, 214, 0.801);
+  position: relative;
+  top: 30px;
+  left: 23px;
+  font-size: xx-large;
+}
+
+small>a {
+  color: rgba(3, 200, 214, 0.801);
+}
