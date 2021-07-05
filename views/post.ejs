@@ -37,8 +37,7 @@
                 </div>
             </div>
 
-
-            <% if(isAuthenticated && creator === %>"<%= creator %>"<% ) { %>
+            <% if(isAuthenticated) { %>
             <div class="p-2 bd-highlight">
                 <a type="button" class="btn btn-outline-info postBtn" href="/posts/edit/<%= post_ID %>">Edit</a>
             </div>

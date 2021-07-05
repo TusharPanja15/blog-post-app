@@ -5,7 +5,6 @@ const _ = require('lodash')
 const mongoose = require('mongoose')
 const fs = require('fs')
 const methodOverride = require('method-override')
-//const encrypt = require('mongoose-encryption')
 const session = require('express-session')
 const passport = require('passport')
 const passportLocalMongoose = require('passport-local-mongoose')
@@ -18,7 +17,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
-
 app.use(session({
     secret: "sec",
     resave: false,
@@ -26,7 +24,6 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.isAuthenticated()
     next()
@@ -84,7 +81,6 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 
-
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| User authentication |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\
 
 app.route('/signup')
@@ -138,6 +134,7 @@ app.get('/logout', (req, res) => {
 
 
 // ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||  Renders Home Page |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\
+
 app.get('/', (req, res) => {
 
     const today = new Date()
@@ -158,6 +155,7 @@ app.get('/', (req, res) => {
 
 
 // ||||||||||||||||||||||||||||||||||||||||||||||||||||| Renders Compose Page and Adds post to database  |||||||||||||||||||||||||||||||||||||||||||||||| \\
+
 app.route('/compose')
 
     .get((req, res) => {
@@ -184,8 +182,8 @@ app.route('/compose')
     })
 
 
-
 // ||||||||||||||||||||||| Renders the full blog post Reading using GET method and Updates the post using PUT method by it's ID |||||||||||||||||||||||| \\
+
 app.route('/posts/:postId')
 
     .get((req, res) => {
@@ -216,6 +214,7 @@ app.route('/posts/:postId')
 
 
 // |||||||||||||||||||||||||||||||||| Renders the full blog post reading on form using GET method by it's ID ||||||||||||||||||||||||||||||||||||||||||| \\
+
 app.get('/posts/edit/:postId', (req, res) => {
     const editPostId = req.params.postId
 
@@ -232,6 +231,7 @@ app.get('/posts/edit/:postId', (req, res) => {
 
 
 // |||||||||||||||||||||||||||||||||||||||||||||||| Deletes the post from database using POST method ||||||||||||||||||||||||||||||||||||||||||||||||| \\
+
 app.post('/deletePost', (req, res) => {
     const deletePostId = req.body.deletePost
 
@@ -244,18 +244,8 @@ app.post('/deletePost', (req, res) => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
 // ||||||||||||||||||||||||||||||||||||||||||||||||||| Other pages are rendered using GET method ||||||||||||||||||||||||||||||||||||||||||||||||||||| \\
+
 app.get('/contact', (req, res) => {
     res.render("contact", { contactUsText: contact })
 })
@@ -266,6 +256,7 @@ app.get('/about', (req, res) => {
 
 
 // ||||||||||||||||||||||||||||| Assigns port number manually or automatically from the local enviornment of server |||||||||||||||||||||||||||||||||| \\
+
 const port = process.env.PORT || 4000
 app.listen(port, function () {
     console.log(`Listening on port ${port} ...`)
